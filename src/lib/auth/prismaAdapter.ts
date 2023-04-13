@@ -1,8 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next"
 import { Adapter } from "next-auth/adapters"
 import { prisma } from "../prisma"
-import NextAuth from "next-auth/next"
-import { buildNextAuthOptions } from "@/pages/api/auth/[...nextauth]"
 
 export function PrismaAdapter(
   req: NextApiRequest,
