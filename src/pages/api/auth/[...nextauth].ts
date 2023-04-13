@@ -2,7 +2,7 @@ import { PrismaAdapter } from "@/lib/auth/prismaAdapter";
 import { NextApiRequest, NextApiResponse } from "next";
 import NextAuth, { NextAuthOptions } from "next-auth";
 import GithubProvider, {GithubProfile} from 'next-auth/providers/github';
-import GoogleProvider from "next-auth/providers/google";
+import GoogleProvider , {GoogleProfile} from "next-auth/providers/google";
 
 export function buildNextAuthOptions(req: NextApiRequest,res:NextApiResponse): NextAuthOptions {
   return {
@@ -23,6 +23,14 @@ export function buildNextAuthOptions(req: NextApiRequest,res:NextApiResponse): N
       GoogleProvider({
         clientId: process.env.GOOGLE_CLIENT_ID ?? "",
         clientSecret: process.env.GOOGLE_CLIENT_SECRET ?? "",
+        profile (profile: GoogleProfile) {
+          return { 
+            id: profile.sub,
+            name: profile.name!,
+            email: profile.email!,
+            avatar_url: profile.picture
+          }
+        }
       })
     ],
     callbacks: {
