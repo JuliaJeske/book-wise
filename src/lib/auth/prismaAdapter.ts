@@ -34,7 +34,7 @@ export function PrismaAdapter(
 
       return {
         ...user,
-        avatar_url: user.avatar_url!,
+        avatar_url: user?.avatar_url!,
         emailVerified: null
       }
     },
@@ -189,4 +189,3 @@ export function PrismaAdapter(
     },
   }
 }
-

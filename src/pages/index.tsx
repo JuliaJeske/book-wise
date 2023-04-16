@@ -1,5 +1,6 @@
 import { signOut, useSession } from "next-auth/react"
 import { NextPageWithLayout } from "./_app"
+import DefaultLayout from "@/layouts/DefaultLayout"
 
 const HomePage: NextPageWithLayout = () => {
   const {data} = useSession()
@@ -13,10 +14,9 @@ const HomePage: NextPageWithLayout = () => {
 
 HomePage.getLayout = function getLayout(page) {
   return (
-   <div>
-    <p>layout</p>
+   <DefaultLayout title="inicio">
     {page}
-   </div>
+   </DefaultLayout>
   )
 }
 
