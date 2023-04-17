@@ -5,7 +5,6 @@ import { HomeContainer } from "@/styles/pages/home"
 import { LatestRatings } from "@/components/latestRatings"
 
 const HomePage: NextPageWithLayout = () => {
-  const {data} = useSession()
   return (
     <HomeContainer>
       <LatestRatings />

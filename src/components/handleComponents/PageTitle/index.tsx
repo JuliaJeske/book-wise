@@ -1,6 +1,6 @@
 import { ComponentProps } from "@stitches/react"
 import { ReactNode } from "react"
-import { Heading } from "../../../Typography"
+import { Heading } from "../../Typography"
 import { Container } from "./styles"
 
 type PageTitleProps = ComponentProps<typeof Container> & {
